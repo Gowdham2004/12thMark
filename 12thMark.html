@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form onsubmit="myFunction();  return false;">
+<h1>10th Standard</h1>
+  <label for="tam">Tamil : </label>
+  <input type="number" id="tam" name="tam" min="0" max="100"><br><br>
+  <label for="eng">English : </label>
+  <input type="number" id="eng" name="eng" min="0" max="100"><br><br>
+  <label for="mat">Maths : </label>
+  <input type="number" id="mat" name="mat" min="0" max="100"><br><br>
+  <label for="sci">Science : </label>
+  <input type="number" id="sci" name="sci" min="0" max="100"><br><br>
+  <label for="soc">Social : </label>
+  <input type="number" id="soc" name="soc" min="0" max="100"><br><br>
+<h1>11th Standard</h1>
+  <label for="tam11">Tamil : </label>
+  <input type="number" id="tam11" name="tam11" min="0" max="100"><br><br>
+  <label for="eng11">English : </label>
+  <input type="number" id="eng11" name="eng11" min="0" max="100"><br><br>
+  <label for="mat11">Maths : </label>
+  <input type="number" id="mat11" name="mat11" min="0" max="100"><br><br>
+  <label for="phy11">Physics : </label>
+  <input type="number" id="phy11" name="phy11" min="0" max="100"><br><br>
+  <label for="chem11">Chemistry : </label>
+  <input type="number" id="chem11" name="chem11" min="0" max="100"><br><br>
+  <label for="bio11">Biology : </label>
+  <input type="number" id="bio11" name="bio11" min="0" max="100"><br><br>
+  <input type="submit">
+  <br><br>
+</form>
+
+<h1 id="title"></h1>
+<p id="total12"></p>
+<h2 id="total"></h2>
+<p id="cutoff"></p>
+
+<script>
+function myFunction() {
+
+  //getting 10th marks
+  var tam = parseInt(document.getElementById("tam").value);
+  var eng = parseInt(document.getElementById("eng").value);
+  var mat = parseInt(document.getElementById("mat").value);
+  var sci = parseInt(document.getElementById("sci").value);
+  var soc = parseInt(document.getElementById("soc").value);
+  
+  //getting 11th marks
+  var tam11 = parseInt(document.getElementById("tam11").value);
+  var eng11 = parseInt(document.getElementById("eng11").value);
+  var mat11 = parseInt(document.getElementById("mat11").value);
+  var phy11 = parseInt(document.getElementById("phy11").value);
+  var chem11 = parseInt(document.getElementById("chem11").value);
+  var bio11 = parseInt(document.getElementById("bio11").value);
+  
+  //declaring variables to find 10th std highest three marks
+  var largest;
+  var largest1;
+  var largest2;
+  
+  //1st highest mark
+  if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+    largest = tam;
+    tam = 0;
+  }
+  else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+    largest = eng;
+    eng = 0;
+  }
+  else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+    largest = mat;
+    mat = 0;
+  }
+  else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+    largest = sci;
+    sci = 0;
+  }
+  else {
+    largest = soc;
+    soc = 0;
+  }
+  
+  //2nd highest mark
+  if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+    largest1 = tam;
+    tam = 0;
+  }
+  else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+    largest1 = eng;
+    eng = 0;
+  }
+  else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+    largest1 = mat;
+    mat = 0;
+  }
+  else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+    largest1 = sci;
+    sci = 0;
+  }
+  else {
+    largest1 = soc;
+    soc = 0;
+  }
+  
+  //3rd highest mark
+  if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+    largest2 = tam;
+    tam = 0;
+  }
+  else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+    largest2 = eng;
+    eng = 0;
+  }
+  else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+    largest2 = mat;
+    mat = 0;
+  }
+  else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+    largest2 = sci;
+    sci = 0;
+  }
+  else {
+    largest2 = soc;
+    soc = 0;
+  }
+  
+  //30% from 3 highest scored subjects from 10th
+  var sslc = largest + largest1 + largest2;
+  sslc = sslc / 3;
+  sslc = (sslc / 100) * 30;
+  
+  //sum of each hsc subjects by sslc average
+  var tam60 = ((tam11 / 100) * 30) + sslc;
+  var eng60 = ((eng11 / 100) * 30) + sslc;
+  var mat60 = ((mat11 / 100) * 30) + sslc;
+  var phy60 = ((phy11 / 100) * 30) + sslc;
+  var chem60 = ((chem11 / 100) * 30) + sslc;
+  var bio60 = ((bio11 / 100) * 30) + sslc;
+  
+  //Converting 60% of marks to 100% marks
+  var tam100 = (tam60/60) * 100;
+  var eng100 = (eng60/60) * 100;
+  var mat100 = (mat60/60) * 100;
+  var phy100 = (phy60/60) * 100;
+  var chem100 = (chem60/60) * 100;
+  var bio100 = (bio60/60) * 100;
+  
+  //Total marks in 12th standard
+  var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
+  
+  //Engineering cut-off mark calculation
+  var cutoff = mat100 + (phy100/2) + (chem100/2);
+    
+  document.getElementById("title").innerHTML = "12th Standard";
+  
+  document.getElementById("total12").innerHTML = "Tamil = " + tam100 + "<br><br>English = " + eng100 + "<br><br>Maths = " + mat100 + "<br><br>Physics = " + phy100 + "<br><br>Chemistry = " + chem100 + "<br><br>Biology = " + bio100;
+  
+  document.getElementById("total").innerHTML = "Total = " + total;
+  
+  document.getElementById("cutoff").innerHTML = "Engineering cut-off mark = " + cutoff;
+}
+</script>
+
+</body>
+</html>
