@@ -138,6 +138,52 @@
 #standard12a, #standard12, #reloadbtn {
 	display: none;
 }
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 90%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+ width: 85%;
+}
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}   
+
 </style>
 </head>
 <body>
@@ -145,61 +191,16 @@
 <div class="form-style-10">
 <h1>12th Std Mark Calculator</h1>
 <form onsubmit="myFunction();  return false;" id="form12">
-    <div class="section" id="standard10a"><span>1</span>10th Standard</div>
-    <div class="inner-wrap" id="standard10">
-        <label for="tam">Tamil : </label>
-        <input type="number" id="tam" name="tam" min="0" max="100"><br><br>
-        <label for="eng">English : </label>
-        <input type="number" id="eng" name="eng" min="0" max="100"><br><br>
-        <label for="mat">Mathematics : </label>
-        <input type="number" id="mat" name="mat" min="0" max="100"><br><br>
-        <label for="sci">Science : </label>
-        <input type="number" id="sci" name="sci" min="0" max="100"><br><br>
-        <label for="soc">Social Science : </label>
-        <input type="number" id="soc" name="soc" min="0" max="100"><br><br>
-    </div>
-
-    <div class="section" id="standard11a"><span>2</span>11th Standard</div>
-    <div class="inner-wrap" id="standard11">
-        <label for="tam11">Tamil : </label>
-        <input type="number" id="tam11" name="tam11" min="0" max="100"><br><br>
-        <label for="eng11">English : </label>
-        <input type="number" id="eng11" name="eng11" min="0" max="100"><br><br>
-        <label for="mat11">Mathematics : </label>
-        <input type="number" id="mat11" name="mat11" min="0" max="100"><br><br>
-        <label for="phy11">Physics : </label>
-        <input type="number" id="phy11" name="phy11" min="0" max="100"><br><br>
-        <label for="chem11">Chemistry : </label>
-        <input type="number" id="chem11" name="chem11" min="0" max="100"><br><br>
-        <label for="bio11">Biology/CS : </label>
-        <input type="number" id="bio11" name="bio11" min="0" max="100"><br><br>
-    </div>
     
-    <div class="section" id="standard12a"><span>1</span>12th Standard</div>
-    <div class="inner-wrap" id="standard12">
-        <label for="tam12">Tamil : </label>
-        <input type="text" id="tam12" disabled><br><br>
-        <label for="eng12">English : </label>
-        <input type="text" id="eng12" disabled><br><br>
-        <label for="mat12">Mathematics : </label>
-        <input type="text" id="mat12" disabled><br><br>
-        <label for="phy12">Physics : </label>
-        <input type="text" id="phy12" disabled><br><br>
-        <label for="chem12">Chemistry : </label>
-        <input type="text" id="chem12" disabled><br><br>
-        <label for="bio12">Biology/CS : </label>
-        <input type="text" id="bio12" disabled><br><br>
-        <h2 id="total"></h2>
-    	<p id="cutoff"></p>
-    </div>
+    <div class="inner-wrap" id="standard10" style="margin: auto;">
     
-    <div class="button-section" id="submitbtn">
-     <input type="submit" value="Get Marks!" name="Sign Up" />
+    <a href="12thmarknew.html" class="button"><span>Maths-Biology </span></a>
+    <a href="12thmarkcs.html" class="button"><span>Computer Science </span></a>
+    <a href="12thmarkbm.html" class="button"><span>Business Maths </span></a>
+    <!-- <a href="12thmarkcomm.html" class="button"><span>Commerce </span></a> -->
+	
+        
     </div>
-
-    <div class="button-section" id="reloadbtn">
-      <input type="button" value="Back" name="Sign Up" onclick="location.reload(); window.scrollTo(0, 0);"/>
-     </div>
     
 </form>
 <p>Note : <br><br>The above mark is calculated by</p>
@@ -212,166 +213,6 @@
     <p style="text-align:center;">***This is not official mark***</p>
     <p style="text-align:center; margin-top: 30px;">This site was created by <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank">Gowdham</a></p>
 </div>
-
-  <script>
-	function myFunction() {
-
-  	//getting 10th marks
-  	var tam = parseInt(document.getElementById("tam").value);
-    var eng = parseInt(document.getElementById("eng").value);
-    var mat = parseInt(document.getElementById("mat").value);
-    var sci = parseInt(document.getElementById("sci").value);
-    var soc = parseInt(document.getElementById("soc").value);
-  
-    //getting 11th marks
-    var tam11 = parseInt(document.getElementById("tam11").value);
-    var eng11 = parseInt(document.getElementById("eng11").value);
-    var mat11 = parseInt(document.getElementById("mat11").value);
-    var phy11 = parseInt(document.getElementById("phy11").value);
-    var chem11 = parseInt(document.getElementById("chem11").value);
-    var bio11 = parseInt(document.getElementById("bio11").value);
-
-    //declaring variables to find 10th std highest three marks
-    var largest;
-    var largest1;
-    var largest2;
-
-    //1st highest mark
-    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
-      largest = tam;
-      tam = 0;
-    }
-    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
-      largest = eng;
-      eng = 0;
-    }
-    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
-      largest = mat;
-      mat = 0;
-    }
-    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
-      largest = sci;
-      sci = 0;
-    }
-    else {
-      largest = soc;
-      soc = 0;
-    }
-
-    //2nd highest mark
-    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
-      largest1 = tam;
-      tam = 0;
-    }
-    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
-      largest1 = eng;
-      eng = 0;
-    }
-    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
-      largest1 = mat;
-      mat = 0;
-    }
-    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
-      largest1 = sci;
-      sci = 0;
-    }
-    else {
-      largest1 = soc;
-      soc = 0;
-    }
-
-    //3rd highest mark
-    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
-      largest2 = tam;
-      tam = 0;
-    }
-    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
-      largest2 = eng;
-      eng = 0;
-    }
-    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
-      largest2 = mat;
-      mat = 0;
-    }
-    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
-      largest2 = sci;
-      sci = 0;
-    }
-    else {
-      largest2 = soc;
-      soc = 0;
-    }
-
-    //30% from 3 highest scored subjects from 10th
-    var sslc = largest + largest1 + largest2;
-    sslc = sslc / 3;
-    sslc = (sslc / 100) * 50;
-
-    tam11 = tam11 - 10;
-    eng11 = eng11 - 10;
-    mat11 = mat11 - 10;
-    phy11 = phy11 - 30;
-    chem11 = chem11 - 30;
-    bio11 = bio11 - 30;
-
-    //sum of each hsc subjects by sslc average
-    var tam100 = ((tam11 / 90) * 20) + sslc + 30;
-    var eng100 = ((eng11 / 90) * 20) + sslc + 30;
-    var mat100 = ((mat11 / 90) * 20) + sslc + 30;
-    var phy100 = ((phy11 / 70) * 20) + sslc + 30;
-    var chem100 = ((chem11 / 70) * 20) + sslc + 30;
-    var bio100 = ((bio11 / 70) * 20) + sslc + 30;
-
-    //Converting 60% of marks to 100% marks
-    // var tam100 = (tam60/60) * 100;
-    // var eng100 = (eng60/60) * 100;
-    // var mat100 = (mat60/60) * 100;
-    // var phy100 = (phy60/60) * 100;
-    // var chem100 = (chem60/60) * 100;
-    // var bio100 = (bio60/60) * 100;
-
-    //Total marks in 12th standard
-    var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
-
-    //Engineering cut-off mark calculation
-    var cutoff = mat100 + (phy100/2) + (chem100/2);
-    //limiting to 2 decimal values
-    tam100 = tam100.toFixed(2);
-    eng100 = eng100.toFixed(2);
-    mat100 = mat100.toFixed(2);
-    phy100 = phy100.toFixed(2);
-    chem100 = chem100.toFixed(2);
-    bio100 = bio100.toFixed(2);
-    total = total.toFixed(2);
-    cutoff = cutoff.toFixed(2);
-
-
-    document.getElementById("standard10a").style.display = "none";
-    document.getElementById("standard10").style.display = "none";
-    document.getElementById("standard11a").style.display = "none";
-    document.getElementById("standard11").style.display = "none";
-    document.getElementById("submitbtn").style.display = "none";
-    
-    document.getElementById("standard12a").style.display = "block";
-    document.getElementById("standard12").style.display = "block";
-    document.getElementById("reloadbtn").style.display = "block";
-    
-    document.getElementById("tam12").setAttribute('value', tam100);
-    document.getElementById("eng12").setAttribute('value', eng100);
-    document.getElementById("mat12").setAttribute('value', mat100);
-    document.getElementById("phy12").setAttribute('value', phy100);
-    document.getElementById("chem12").setAttribute('value', chem100);
-    document.getElementById("bio12").setAttribute('value', bio100);
-    
-
-    document.getElementById("total").innerHTML = "Total = " + total;
-
-    document.getElementById("cutoff").innerHTML = "Engineering cut-off mark = " + cutoff;
-    
-    window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-    
-  </script>
 
 </body>
 </html>
