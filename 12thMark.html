@@ -205,7 +205,7 @@
 <p>Note : <br><br>The above mark is calculated by</p>
 <ul>
     <li>10th : 50% from average of highest scored 3 subjects</li>
-    <li>11th : 20% from each subjects</li>
+    <li>11th : 20% from each subjects theory (excluded practicals)</li>
     <li>12th : 30% from practicals (30% fully added in the above calculator)</li>
 </ul> 
 
@@ -307,13 +307,20 @@
     sslc = sslc / 3;
     sslc = (sslc / 100) * 50;
 
+    tam11 = tam11 - 10;
+    eng11 = eng11 - 10;
+    mat11 = mat11 - 10;
+    phy11 = phy11 - 30;
+    chem11 = chem11 - 30;
+    bio11 = bio11 - 30;
+
     //sum of each hsc subjects by sslc average
-    var tam100 = ((tam11 / 100) * 20) + sslc + 30;
-    var eng100 = ((eng11 / 100) * 20) + sslc + 30;
-    var mat100 = ((mat11 / 100) * 20) + sslc + 30;
-    var phy100 = ((phy11 / 100) * 20) + sslc + 30;
-    var chem100 = ((chem11 / 100) * 20) + sslc + 30;
-    var bio100 = ((bio11 / 100) * 20) + sslc + 30;
+    var tam100 = ((tam11 / 90) * 20) + sslc + 30;
+    var eng100 = ((eng11 / 90) * 20) + sslc + 30;
+    var mat100 = ((mat11 / 90) * 20) + sslc + 30;
+    var phy100 = ((phy11 / 70) * 20) + sslc + 30;
+    var chem100 = ((chem11 / 70) * 20) + sslc + 30;
+    var bio100 = ((bio11 / 70) * 20) + sslc + 30;
 
     //Converting 60% of marks to 100% marks
     // var tam100 = (tam60/60) * 100;
