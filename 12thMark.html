@@ -202,6 +202,15 @@
      </div>
     
 </form>
+<p>Note : <br><br>The above mark is calculated by</p>
+<ul>
+    <li>10th : 50% from average of highest scored 3 subjects</li>
+    <li>11th : 20% from each subjects</li>
+    <li>12th : 30% from practicals (30% fully added in the above calculator)</li>
+</ul> 
+
+    <p style="text-align:center;">***This is not official mark***</p>
+    <p style="text-align:center; margin-top: 30px;">This site was created by <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank">Gowdham</a></p>
 </div>
 
   <script>
@@ -296,23 +305,23 @@
     //30% from 3 highest scored subjects from 10th
     var sslc = largest + largest1 + largest2;
     sslc = sslc / 3;
-    sslc = (sslc / 100) * 30;
+    sslc = (sslc / 100) * 50;
 
     //sum of each hsc subjects by sslc average
-    var tam60 = ((tam11 / 100) * 30) + sslc;
-    var eng60 = ((eng11 / 100) * 30) + sslc;
-    var mat60 = ((mat11 / 100) * 30) + sslc;
-    var phy60 = ((phy11 / 100) * 30) + sslc;
-    var chem60 = ((chem11 / 100) * 30) + sslc;
-    var bio60 = ((bio11 / 100) * 30) + sslc;
+    var tam100 = ((tam11 / 100) * 20) + sslc + 30;
+    var eng100 = ((eng11 / 100) * 20) + sslc + 30;
+    var mat100 = ((mat11 / 100) * 20) + sslc + 30;
+    var phy100 = ((phy11 / 100) * 20) + sslc + 30;
+    var chem100 = ((chem11 / 100) * 20) + sslc + 30;
+    var bio100 = ((bio11 / 100) * 20) + sslc + 30;
 
     //Converting 60% of marks to 100% marks
-    var tam100 = (tam60/60) * 100;
-    var eng100 = (eng60/60) * 100;
-    var mat100 = (mat60/60) * 100;
-    var phy100 = (phy60/60) * 100;
-    var chem100 = (chem60/60) * 100;
-    var bio100 = (bio60/60) * 100;
+    // var tam100 = (tam60/60) * 100;
+    // var eng100 = (eng60/60) * 100;
+    // var mat100 = (mat60/60) * 100;
+    // var phy100 = (phy60/60) * 100;
+    // var chem100 = (chem60/60) * 100;
+    // var bio100 = (bio60/60) * 100;
 
     //Total marks in 12th standard
     var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
@@ -326,6 +335,7 @@
     phy100 = phy100.toFixed(2);
     chem100 = chem100.toFixed(2);
     bio100 = bio100.toFixed(2);
+    total = total.toFixed(2);
     cutoff = cutoff.toFixed(2);
 
 
