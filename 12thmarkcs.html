@@ -138,6 +138,9 @@
 #standard12a, #standard12, #reloadbtn {
 	display: none;
 }
+.enter {
+  font-size: 10px;
+}
 </style>
 </head>
 <body>
@@ -145,7 +148,7 @@
 <div class="form-style-10">
 <h1>12th Std Mark Calculator<br><span>Computer Science</span></h1>
 <form onsubmit="myFunction();  return false;" id="form12">
-    <div class="section" id="standard10a"><span>1</span>10th Standard</div>
+    <div class="section" id="standard10a"><span>1</span>10th Standard<br><div class="enter">(Enter all subjects marks out of 100)</div></div>
     <div class="inner-wrap" id="standard10">
         <label for="tam">Tamil : </label>
         <input type="number" id="tam" name="tam" min="0" max="100"><br><br>
@@ -159,7 +162,7 @@
         <input type="number" id="soc" name="soc" min="0" max="100"><br><br>
     </div>
 
-    <div class="section" id="standard11a"><span>2</span>11th Standard</div>
+    <div class="section" id="standard11a"><span>2</span>11th Standard<br><div class="enter">(Enter all subjects marks out of 100)</div></div>
     <div class="inner-wrap" id="standard11">
         <label for="tam11">Tamil : </label>
         <input type="number" id="tam11" name="tam11" min="0" max="100"><br><br>
