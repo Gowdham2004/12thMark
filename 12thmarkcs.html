@@ -364,18 +364,21 @@
     // var chem100 = (chem60/60) * 100;
     // var bio100 = (bio60/60) * 100;
 
+    //limiting to 2 decimal values
+    tam100 = +tam100.toFixed(2);
+    eng100 = +eng100.toFixed(2);
+    mat100 = +mat100.toFixed(2);
+    phy100 = +phy100.toFixed(2);
+    chem100 = +chem100.toFixed(2);
+    bio100 = +bio100.toFixed(2);
+		
     //Total marks in 12th standard
     var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
 
     //Engineering cut-off mark calculation
     var cutoff = mat100 + (phy100/2) + (chem100/2);
+		
     //limiting to 2 decimal values
-    tam100 = tam100.toFixed(2);
-    eng100 = eng100.toFixed(2);
-    mat100 = mat100.toFixed(2);
-    phy100 = phy100.toFixed(2);
-    chem100 = chem100.toFixed(2);
-    bio100 = bio100.toFixed(2);
     total = total.toFixed(2);
     cutoff = cutoff.toFixed(2);
 
